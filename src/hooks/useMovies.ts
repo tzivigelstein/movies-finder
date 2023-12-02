@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { Movie } from "../types/movie";
+import { Movie, Type } from "../types/movie";
 import { parseMovies } from "../parsers/movie";
 import MoviesClient from "../client/movies";
 
 interface UseMoviesProps {
   query: string;
+  type: Type | null;
 }
 
-export default function useMovies({ query }: UseMoviesProps) {
+export default function useMovies({ query, type }: UseMoviesProps) {
   const [movies, setMovies] = useState<Movie[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -19,13 +20,13 @@ export default function useMovies({ query }: UseMoviesProps) {
     setError(null);
 
     client
-      .getMovies({ query })
+      .getMovies({ query, type })
       .then((data) => data.Search)
       .then(parseMovies)
       .then(setMovies)
       .catch(setError)
       .finally(() => setLoading(false));
-  }, [query]);
+  }, [query, type]);
 
   return { movies, moviesError: error, loading };
 }
