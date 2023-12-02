@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import { Type } from "../../types/movie";
 
 const options = [
-  { label: "All", value: "all" },
+  { label: "All", value: "" },
   { label: "Movie", value: "movie" },
   { label: "Series", value: "series" },
   { label: "Episode", value: "episode" },
