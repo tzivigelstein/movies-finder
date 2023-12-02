@@ -39,7 +39,10 @@ export default function Movies() {
               !loading &&
               query &&
               `Search "${query}"`}
-            {moviesError && "We couldn't find your movie"}
+            {moviesError &&
+              `We couldn't find your ${
+                type && type?.length > 0 ? type : "movie"
+              }`}
           </span>
           <HorizontalPicker type={type} handleTypeChange={handleTypeChange} />
         </div>
