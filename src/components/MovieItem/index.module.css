@@ -4,6 +4,7 @@
   overflow: hidden;
   border-radius: 2px;
   transition: 200ms ease;
+  height: 100%;
 }
 
 @media (hover) {
@@ -23,6 +24,7 @@
 
 .container img {
   width: 100%;
+  object-fit: cover;
 }
 
 .infoContainer {
