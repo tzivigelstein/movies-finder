@@ -8,3 +8,7 @@ export const parseMovie = (movie: APIMovie): Movie => ({
   type: movie.Type,
   year: parseInt(movie.Year),
 });
+
+export const parseMovies = (movies: APIMovie[]): Movie[] => {
+  return movies.map(parseMovie);
+};
