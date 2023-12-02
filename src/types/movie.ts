@@ -15,7 +15,7 @@ export interface APIMovie {
 export interface Movie {
   title: string
   year: number
-  imdbID: string
+  id: string
   type: string
   poster: string
 }
