@@ -1,8 +1,10 @@
-import "./App.css"
-import useMovies from "./hooks/useMovies"
+import "./App.css";
 
-function App() {
-  const {movies} = useMovies()
+import MoviesGallery from "./components/MoviesGallery";
+import useMovies from "./hooks/useMovies";
+
+export default function App() {
+  const { movies } = useMovies();
 
   return (
     <div className="page">
@@ -15,9 +17,9 @@ function App() {
           </div>
         </form>
       </header>
-      <main>{movies && movies.map(movie => <p>{movie.title}</p>)}</main>
+      <main>
+        <MoviesGallery movies={movies} />
+      </main>
     </div>
-  )
+  );
 }
-
-export default App
