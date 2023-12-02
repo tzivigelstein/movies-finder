@@ -13,7 +13,7 @@ export default function useQuery({
 
   const [query, setQuery] = useState(initialQuery ?? rotationValue);
   const [type, setType] = useState<Type | null>(initialType ?? null);
-  const [error, setError] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
 
   function handleQueryChange(event: ChangeEvent<HTMLInputElement>) {
     const queryValue = event.currentTarget.value;
