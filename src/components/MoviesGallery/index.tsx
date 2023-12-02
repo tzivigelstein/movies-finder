@@ -11,7 +11,7 @@ export default function MoviesGallery({ movies }: Props) {
   return (
     <ul className={styles.list}>
       {movies &&
-        movies.map((movie) => <MovieItem key={movie.imdbID} movie={movie} />)}
+        movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
     </ul>
   );
 }
