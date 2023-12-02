@@ -20,4 +20,4 @@ export interface Movie {
   poster: string;
 }
 
-export type Type = "movie" | "series" | "episode";
+export type Type = "" | "movie" | "series" | "episode";
