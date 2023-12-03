@@ -1,17 +1,17 @@
-import styles from "./index.module.css";
+import styles from './index.module.css'
 
-import { Movie } from "../../types/movie";
+import { Movie } from '../../types/movie'
 
-import placeholderImage from "/movie-placeholder.png";
+import placeholderImage from '/movie-placeholder.png'
 
 interface Props {
-  movie: Movie;
+  movie: Movie
 }
 
 export default function MovieItem({ movie }: Props) {
   const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = placeholderImage;
-  };
+    event.currentTarget.src = placeholderImage
+  }
 
   return (
     <a
@@ -33,5 +33,5 @@ export default function MovieItem({ movie }: Props) {
         </div>
       </li>
     </a>
-  );
+  )
 }

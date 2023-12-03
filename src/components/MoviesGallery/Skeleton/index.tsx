@@ -1,5 +1,5 @@
-import MovieItemSkeleton from "../../MovieItem/Skeleton";
-import galleryStyles from "../index.module.css";
+import MovieItemSkeleton from '../../MovieItem/Skeleton'
+import galleryStyles from '../index.module.css'
 
 export default function MoviesGallerySkeleton() {
   return (
@@ -11,5 +11,5 @@ export default function MoviesGallerySkeleton() {
       <MovieItemSkeleton />
       <MovieItemSkeleton />
     </ul>
-  );
+  )
 }

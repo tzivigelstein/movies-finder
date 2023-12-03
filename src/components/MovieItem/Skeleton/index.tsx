@@ -1,5 +1,5 @@
-import styles from "./index.module.css";
+import styles from './index.module.css'
 
 export default function MovieItemSkeleton() {
-  return <li className={styles.skeletonContainer}></li>;
+  return <li className={styles.skeletonContainer}></li>
 }

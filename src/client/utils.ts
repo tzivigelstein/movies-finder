@@ -1,4 +1,4 @@
-import { Type } from "../types/movie";
+import { Type } from '../types/movie'
 
 export function buildUrlWithQuery(
   baseUrl: string,
@@ -6,16 +6,16 @@ export function buildUrlWithQuery(
   type: Type | null,
   page?: number,
 ) {
-  const url = new URL(baseUrl);
-  url.searchParams.set("s", query);
+  const url = new URL(baseUrl)
+  url.searchParams.set('s', query)
 
   if (type) {
-    url.searchParams.set("type", type);
+    url.searchParams.set('type', type)
   }
 
   if (page) {
-    url.searchParams.set("page", page.toString());
+    url.searchParams.set('page', page.toString())
   }
 
-  return url.toString();
+  return url.toString()
 }

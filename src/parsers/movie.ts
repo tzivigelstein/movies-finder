@@ -1,4 +1,4 @@
-import { APIMovie, Movie } from "../types/movie";
+import { APIMovie, Movie } from '../types/movie'
 
 export const parseMovie = ({
   imdbID,
@@ -14,8 +14,8 @@ export const parseMovie = ({
   title: Title,
   type: Type,
   year: parseInt(Year),
-});
+})
 
 export const parseMovies = (movies: APIMovie[]): Movie[] => {
-  return movies.map(parseMovie);
-};
+  return movies.map(parseMovie)
+}
