@@ -7,10 +7,22 @@ import useMovies from "./hooks/useMovies";
 import useQuery from "./hooks/useQuery";
 import { useLocation } from "react-router-dom";
 import { Type } from "./types/movie";
+import useIntersectionObserver, {
+  IntersectionObserverOptions,
+} from "./hooks/useIntersectionObserver";
 
 export default function Movies() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+
+  const options: IntersectionObserverOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0,
+  };
+
+  const { target, hasIntersected } = useIntersectionObserver({ options });
+
   const queryFromQueryParams = queryParams.get("q");
   const typeFromQueryParams = queryParams.get("type") as Type | null;
 
@@ -19,7 +31,12 @@ export default function Movies() {
       initialQuery: queryFromQueryParams,
       initialType: typeFromQueryParams,
     });
-  const { movies, moviesError, loading } = useMovies({ query, type });
+  const { movies, totalResults, moviesError, loading, loadingExtra } =
+    useMovies({
+      query,
+      type,
+      intersected: hasIntersected,
+    });
 
   return (
     <div className="page">
@@ -49,7 +66,14 @@ export default function Movies() {
         </div>
       </header>
       <main>
-        {!moviesError && !loading && <MoviesGallery movies={movies} />}
+        {!moviesError && !loading && (
+          <MoviesGallery
+            movies={movies}
+            loadingExtra={loadingExtra}
+            totalResults={totalResults}
+            ref={target}
+          />
+        )}
         {loading && <MoviesGallerySkeleton />}
       </main>
     </div>
