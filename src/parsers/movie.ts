@@ -1,12 +1,19 @@
 import { APIMovie, Movie } from "../types/movie";
 
-export const parseMovie = (movie: APIMovie): Movie => ({
-  ...movie,
-  id: movie.imdbID,
-  poster: movie.Poster,
-  title: movie.Title,
-  type: movie.Type,
-  year: parseInt(movie.Year),
+export const parseMovie = ({
+  imdbID,
+  Poster,
+  Title,
+  Type,
+  Year,
+  ...rest
+}: APIMovie): Movie => ({
+  ...rest,
+  id: imdbID,
+  poster: Poster,
+  title: Title,
+  type: Type,
+  year: parseInt(Year),
 });
 
 export const parseMovies = (movies: APIMovie[]): Movie[] => {
