@@ -32,6 +32,7 @@ export default function Movies() {
             type="text"
             placeholder="Search movies"
             onChange={handleQueryChange}
+            onClick={(event) => event.currentTarget.setSelectionRange(-1, -1)}
           />
           <span className="message">
             {!queryError &&
