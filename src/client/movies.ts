@@ -26,4 +26,28 @@ export default class MoviesClient {
       throw new Error("Error: Invalid response");
     });
   }
+
+  async getPaginatedMovies({
+    query,
+    type,
+    page,
+  }: GetMovies & { page: number }): Promise<APIMoviesResponse> {
+    const urlWithQuery = buildUrlWithQuery(this.url, query, type, page);
+
+    return fetch(urlWithQuery)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        if (data.Response === "False") {
+          return {
+            Search: [],
+          };
+        }
+
+        return data;
+      });
+  }
 }
