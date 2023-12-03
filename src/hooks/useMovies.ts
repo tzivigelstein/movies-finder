@@ -48,7 +48,11 @@ export default function useMovies({ query, type }: UseMoviesProps) {
       .catch(setError)
       .finally(() => {
         setLoading(false);
-        navigate(`?q=${encodeURIComponent(q)}`);
+
+        const typeQueryParam =
+          t !== null ? `&type=${encodeURIComponent(t)}` : "";
+
+        navigate(`?q=${encodeURIComponent(q)}${typeQueryParam}`);
       });
   }, []);
 
