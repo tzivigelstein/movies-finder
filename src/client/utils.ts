@@ -7,6 +7,7 @@ export function buildUrlWithQuery(
 ) {
   const url = new URL(baseUrl);
   url.searchParams.set("s", query);
+
   if (type) {
     url.searchParams.set("type", type);
   }
