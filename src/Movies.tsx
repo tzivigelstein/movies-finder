@@ -40,7 +40,10 @@ export default function Movies() {
 
   return (
     <div className="page">
-      <h1>Find the movie you are looking for</h1>
+      <header>
+        <img src="/icon.png" alt="Movie celluloid reel" />
+        <h1>Find the movie you are looking for</h1>
+      </header>
       <header>
         <div className="searchContainer">
           <input
