@@ -64,7 +64,6 @@ export default function useMovies({
   }, [intersected])
 
   useEffect(() => {
-    console.log(movies?.length, totalResults)
     if (movies?.length === totalResults) {
       setHasMore(false)
     }
