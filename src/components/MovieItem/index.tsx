@@ -30,6 +30,21 @@ export default function MovieItem({ movie }: Props) {
           <span className={styles.year}>
             {movie.year} · <span className={styles.type}>{movie.type}</span>
           </span>
+          <span className={styles.imdbLink}>
+            Check on IMDB
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </span>
         </div>
       </li>
     </a>

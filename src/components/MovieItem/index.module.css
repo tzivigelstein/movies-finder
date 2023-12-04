@@ -53,8 +53,20 @@
 .year {
   font-size: 1rem;
   color: #aaa;
+  margin-bottom: 0.5rem;
 }
 
 .type {
   text-transform: capitalize;
+}
+
+.imdbLink {
+  font-size: 1rem;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+}
+
+.imdbLink svg {
+  width: 22px;
 }
