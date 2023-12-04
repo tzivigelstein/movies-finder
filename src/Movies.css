@@ -7,9 +7,37 @@
   flex-direction: column;
 }
 
-.page h1 {
+header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+header img {
+  filter: brightness(0) invert(1);
+  height: max-content;
+  width: 3rem;
+}
+
+header h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  header {
+    gap: 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  header img {
+    width: 2.5rem;
+  }
 }
 
 main {
