@@ -4,9 +4,10 @@ import { Type } from '../../types/movie'
 
 const options: { label: string; value: Type }[] = [
   { label: 'All', value: '' },
-  { label: 'Movie', value: 'movie' },
+  { label: 'Movies', value: 'movie' },
   { label: 'Series', value: 'series' },
-  { label: 'Episode', value: 'episode' },
+  { label: 'Episodes', value: 'episode' },
+  { label: 'Games', value: 'game' },
 ]
 
 interface Props {
