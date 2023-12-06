@@ -28,15 +28,17 @@ export default function HorizontalPicker({ type, handleTypeChange }: Props) {
   return (
     <div className={styles.picker}>
       {options.map(({ label, value }) => (
-        <div
+        <button
           key={value}
           className={`${styles.option} ${
-            selectedOption === value && styles.selected
+            selectedOption === value ? styles.selected : ''
+          } ${
+            value === '' && selectedOption !== value ? styles.defaultOption : ''
           }`}
           onClick={() => handleOptionClick(value)}
         >
           {label}
-        </div>
+        </button>
       ))}
     </div>
   )
