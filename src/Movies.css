@@ -56,7 +56,11 @@ header {
   flex-direction: column;
 }
 
-header input {
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer input {
   width: 100%;
   --padding-vertical: 1.1rem;
   flex: 1;
@@ -64,8 +68,53 @@ header input {
   padding-bottom: var(--padding-vertical);
 }
 
+.removeQueryButton {
+  display: flex;
+  margin: 0;
+  padding: 0.4rem 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+}
+
+@media (hover) {
+  .removeQueryButton:hover {
+    background-color: transparent !important;
+  }
+}
+
+.removeQueryButton:active {
+  transform: translateY(-50%) !important;
+}
+
 .message {
   margin-top: 10px;
   width: 100%;
   height: 1rem;
+}
+
+.examplesButton {
+  background-color: transparent;
+}
+
+@media (hover) {
+  .examplesButton:hover {
+    background-color: transparent;
+  }
+}
+
+.examplesButton:active {
+  transform: none !important;
+}
+
+.examplesHelper {
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding-top: 4rem;
+}
+
+.examplesHelper span {
+  color: #6753ae;
 }
