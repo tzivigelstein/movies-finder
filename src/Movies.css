@@ -56,8 +56,14 @@ header {
   flex-direction: column;
 }
 
+.inputWrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .inputContainer {
   position: relative;
+  width: 100%;
 }
 
 .inputContainer input {
@@ -66,6 +72,20 @@ header {
   flex: 1;
   padding-top: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
+}
+
+.randomMovie {
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+  text-transform: uppercase;
 }
 
 .removeQueryButton {

@@ -14,6 +14,7 @@ import useIntersectionObserver, {
 import MoviesGallerySkeleton from './components/MoviesGallery/Skeleton'
 import MoviesGallery from './components/MoviesGallery'
 import { TimesIcon } from './components/Icons'
+import getRotativeValue from './utils'
 
 export default function Movies() {
   const location = useLocation()
@@ -21,7 +22,7 @@ export default function Movies() {
 
   const options: IntersectionObserverOptions = {
     root: null,
-    rootMargin: '0px',
+    rootMargin: '-100px',
     threshold: 0,
   }
 
@@ -64,23 +65,31 @@ export default function Movies() {
       </header>
       <header>
         <div className="searchContainer">
-          <div className="inputContainer">
-            <input
-              value={query}
-              name="query"
-              type="text"
-              placeholder="Search movies"
-              onChange={handleQueryChange}
-              onClick={event => event.currentTarget.setSelectionRange(-1, -1)}
-            />
-            {!!query && (
-              <button
-                onClick={removeQueryFromInput}
-                className="removeQueryButton"
-              >
-                <TimesIcon />
-              </button>
-            )}
+          <div className="inputWrapper">
+            <div className="inputContainer">
+              <input
+                value={query}
+                name="query"
+                type="text"
+                placeholder="Search movies"
+                onChange={handleQueryChange}
+                onClick={event => event.currentTarget.setSelectionRange(-1, -1)}
+              />
+              {!!query && (
+                <button
+                  onClick={removeQueryFromInput}
+                  className="removeQueryButton"
+                >
+                  <TimesIcon />
+                </button>
+              )}
+            </div>
+            <button
+              onClick={() => setNewQuery(getRotativeValue())}
+              className="randomMovie"
+            >
+              Random
+            </button>
           </div>
           <span className="message">
             {!queryError &&
@@ -89,6 +98,7 @@ export default function Movies() {
               query &&
               `Search "${query}"`}
             {!loading &&
+              !justRemovedQuery &&
               moviesError &&
               `We couldn't find your ${
                 type && type?.length > 0 ? type : 'movie'
