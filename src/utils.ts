@@ -1,4 +1,4 @@
-const INITIAL_QUERIES = [
+export const INITIAL_QUERIES = [
   'The Shawshank Redemption',
   'Inception',
   'The Godfather',
