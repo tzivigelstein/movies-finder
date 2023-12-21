@@ -88,6 +88,19 @@ header {
   text-transform: uppercase;
 }
 
+.randomMovie:active {
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #fd1892 0%,
+    #fec837 25%,
+    #b8fd33 50%,
+    #2c90fc 75%,
+    #b827fc 100%
+  );
+  border-image-slice: 1;
+}
+
 .removeQueryButton {
   display: flex;
   margin: 0;
