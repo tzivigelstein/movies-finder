@@ -85,7 +85,10 @@ export default function Movies() {
               )}
             </div>
             <button
-              onClick={() => setNewQuery(getRotativeValue())}
+              onClick={() => {
+                if (loading || loadingExtra) return
+                setNewQuery(getRotativeValue())
+              }}
               className="randomMovie"
             >
               Random
