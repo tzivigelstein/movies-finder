@@ -65,8 +65,10 @@
   text-decoration: underline;
   display: flex;
   align-items: center;
+  display: flex;
+  gap: 4px
 }
 
 .imdbLink svg {
-  width: 22px;
+  width: 15px;
 }

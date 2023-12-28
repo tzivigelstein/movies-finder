@@ -1,0 +1,23 @@
+.examplesButton {
+  background-color: transparent;
+}
+
+@media (hover) {
+  .examplesButton:hover {
+    background-color: transparent;
+  }
+}
+
+.examplesButton:active {
+  transform: none !important;
+}
+
+.examplesHelper {
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding-top: 4rem;
+}
+
+.examplesHelper span {
+  color: #6753ae;
+}

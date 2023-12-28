@@ -6,15 +6,15 @@ import HorizontalPicker from './components/HorizontalPicker'
 import { Type } from './types/movie'
 import useMovies from './hooks/useMovies'
 import useQuery from './hooks/useQuery'
-import useExampleMovie from './hooks/useExampleMovie'
 import useIntersectionObserver, {
   IntersectionObserverOptions,
 } from './hooks/useIntersectionObserver'
 
 import MoviesGallerySkeleton from './components/MoviesGallery/Skeleton'
 import MoviesGallery from './components/MoviesGallery'
-import { TimesIcon } from './components/Icons'
-import getRotativeValue from './utils'
+import SearchMessage from './components/SearchMessage'
+import Input from './components/Input'
+import JustRemovedQueryMessage from './components/JustRemovedQueryMessage'
 
 export default function Movies() {
   const location = useLocation()
@@ -51,8 +51,6 @@ export default function Movies() {
       intersected: hasIntersected,
     })
 
-  const { exampleMovie } = useExampleMovie()
-
   function removeQueryFromInput() {
     clearQuery()
   }
@@ -65,48 +63,22 @@ export default function Movies() {
       </header>
       <header>
         <div className="searchContainer">
-          <div className="inputWrapper">
-            <div className="inputContainer">
-              <input
-                value={query}
-                name="query"
-                type="text"
-                placeholder="Search movies"
-                onChange={handleQueryChange}
-                onClick={event => event.currentTarget.setSelectionRange(-1, -1)}
-              />
-              {!!query && (
-                <button
-                  onClick={removeQueryFromInput}
-                  className="removeQueryButton"
-                >
-                  <TimesIcon />
-                </button>
-              )}
-            </div>
-            <button
-              onClick={() => {
-                if (loading || loadingExtra) return
-                setNewQuery(getRotativeValue())
-              }}
-              className="randomMovie"
-            >
-              Random
-            </button>
-          </div>
-          <span className="message">
-            {!queryError &&
-              !moviesError &&
-              !loading &&
-              query &&
-              `Search "${query}"`}
-            {!loading &&
-              !justRemovedQuery &&
-              moviesError &&
-              `We couldn't find your ${
-                type && type?.length > 0 ? type : 'movie'
-              }`}
-          </span>
+          <Input
+            handleQueryChange={handleQueryChange}
+            loading={loading}
+            loadingExtra={loadingExtra}
+            query={query}
+            removeQueryFromInput={removeQueryFromInput}
+            setNewQuery={setNewQuery}
+          />
+          <SearchMessage
+            justRemovedQuery={justRemovedQuery}
+            loading={loading}
+            moviesError={moviesError}
+            query={query}
+            queryError={queryError}
+            type={type}
+          />
           <HorizontalPicker type={type} handleTypeChange={handleTypeChange} />
         </div>
       </header>
@@ -120,14 +92,7 @@ export default function Movies() {
           />
         )}
         {justRemovedQuery && (
-          <button
-            onClick={() => setNewQuery(exampleMovie)}
-            className="examplesButton"
-          >
-            <p className="examplesHelper">
-              Try searching for <span>{exampleMovie}</span>
-            </p>
-          </button>
+          <JustRemovedQueryMessage setNewQuery={setNewQuery} />
         )}
         {!justRemovedQuery && loading && <MoviesGallerySkeleton />}
       </main>

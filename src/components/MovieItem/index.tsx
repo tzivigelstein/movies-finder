@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import { Movie } from '../../types/movie'
 
 import placeholderImage from '/movie-placeholder.png'
+import { ExternalLink } from '../Icons'
 
 interface Props {
   movie: Movie
@@ -32,18 +33,7 @@ export default function MovieItem({ movie }: Props) {
           </span>
           <span className={styles.imdbLink}>
             Check on IMDB
-            <svg
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
+            <ExternalLink />
           </span>
         </div>
       </li>
