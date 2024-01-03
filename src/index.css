@@ -628,12 +628,14 @@ input[type='button'] {
   }
 }
 
-button:hover {
-  background: #9b9b9b;
-  background: var(--button-hover);
+@media (hover) {
+  button:hover {
+    background: #9b9b9b;
+    background: var(--button-hover);
+  }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) and (hover) {
   button:hover {
     background: #040a0f;
     background: var(--button-hover);
