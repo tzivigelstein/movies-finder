@@ -1,7 +1,13 @@
+.pickerWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
 .picker {
   display: flex;
   margin-top: 1.5rem;
   gap: 8px;
+  overflow-x: auto;
 }
 
 .defaultOption {
