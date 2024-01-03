@@ -3,6 +3,12 @@
   gap: 0.5rem;
 }
 
+@media (max-width: 480px) {
+  .inputWrapper {
+    flex-direction: column;
+  }
+}
+
 .inputContainer {
   position: relative;
   width: 100%;
